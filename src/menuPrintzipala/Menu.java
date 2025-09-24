@@ -16,6 +16,7 @@ public class Menu {
 	// ERRONKA ESKATZEN DUEN PAUTAK
 	Langileak langile = new Langileak();
 	Bezeroak bezero = new Bezeroak();
+	Sarbidea sarbide = new Sarbidea();
 
 	public Menu() {
 	}
@@ -48,7 +49,7 @@ public class Menu {
 			}
 			if (aukera == 3) {
 				garbi.garbitu();
-				Sarbidea sarbide = new Sarbidea();
+				sarbide.login();
 			} else {
 				System.out.println("Zenbaki hori ez dago pantaila honetan, saiatu berriro:");
 			}
