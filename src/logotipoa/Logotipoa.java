@@ -3,8 +3,11 @@ package logotipoa;
 public class Logotipoa {
 
 	public Logotipoa() {
+	}
 
-		// Funtzioekin egiten da, kodean irudi batzuk errepikatzen baitira; 
+	public void logo() {
+
+		// Funtzioekin egiten da, kodean irudi batzuk errepikatzen baitira;
 		// orduan, kode bera ez errepikatzeagatik eta optimizatuago egiteagatik,
 		// funtzioekin egin dugu.
 
@@ -27,21 +30,23 @@ public class Logotipoa {
 		piramideBetegabea(); // Funtzioari deitzen zaio, triangelua ahoz gora egin dezan, ez beteta.
 
 	}
-	
-	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	///																																						 ///
-	///				                                                        FUNTZIOAK																		 ///
-	///																																						 ///
-	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	/// ///
+	/// FUNTZIOAK ///
+	/// ///
+	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	private void triangeluBuruzBehera() {
 
 		// Lehenengo "for" (b...) hasierako tarteak inprimatzen ditu.
 		// Bigarren "for" (j...) inprimatzen "i" izartxoak jarraian.
-		
-		for (int i = 7; i >= 2; i -= 2) { // "i" lerro bakoitzeko "*" zenbakia kontrolatzen du. Hartu 7, 5, 3 balioak (7 hasten delako eta 2 kentzen duelako i > = 2 izan arte).
-			for (int b = 0; b < (7 - i) / 2; b++) { // (7 - i)/2 kalkulatu zenbat espazio dauden errenkada zentratzeko. Zatiketa osoa erabiltzen du; i bakoitia eta guztira 7 izanik, behar bezala zentratuta geratzen da.
+
+		for (int i = 7; i >= 2; i -= 2) { // "i" lerro bakoitzeko "*" zenbakia kontrolatzen du. Hartu 7, 5, 3 balioak (7
+											// hasten delako eta 2 kentzen duelako i > = 2 izan arte).
+			for (int b = 0; b < (7 - i) / 2; b++) { // (7 - i)/2 kalkulatu zenbat espazio dauden errenkada zentratzeko.
+													// Zatiketa osoa erabiltzen du; i bakoitia eta guztira 7 izanik,
+													// behar bezala zentratuta geratzen da.
 				System.out.print(" ");
 			}
 			for (int j = 1; j <= i; j++) {
@@ -64,7 +69,8 @@ public class Logotipoa {
 	}
 
 	private void lerroHorizontala() {
-		// Inprimatu 7 "*" lerro berean jarraituta. Ez du println egiten amaieran, eta, beraz, kurtsorea "*" horien amaieran geratzen da, lerro berean.
+		// Inprimatu 7 "*" lerro berean jarraituta. Ez du println egiten amaieran, eta,
+		// beraz, kurtsorea "*" horien amaieran geratzen da, lerro berean.
 
 		for (int i = 1; i <= 7; i++) {
 			System.out.print("*");
@@ -95,9 +101,10 @@ public class Logotipoa {
 
 			System.out.print("*");
 
-			// "i > 1" bada, barruko "2 * (i - 1) - 1" espazioa inprimatzen du, eta, gero, "*" eskuinekoa (eskuineko ertza). Honek piramide hutsa sortzen du.
-			
-			if (i > 1) { 
+			// "i > 1" bada, barruko "2 * (i - 1) - 1" espazioa inprimatzen du, eta, gero,
+			// "*" eskuinekoa (eskuineko ertza). Honek piramide hutsa sortzen du.
+
+			if (i > 1) {
 
 				for (int k = 1; k <= 2 * (i - 1) - 1; k++) {
 					System.out.print(" ");
