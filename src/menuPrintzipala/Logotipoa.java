@@ -1,4 +1,4 @@
-package logotipoa;
+package menuPrintzipala;
 
 public class Logotipoa {
 

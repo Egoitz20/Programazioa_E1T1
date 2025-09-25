@@ -2,8 +2,9 @@ package menuPrintzipala;
 
 import java.util.Scanner;
 
+import bezero.Bezeroak;
 import index.KontsolaGarbi;
-import logotipoa.Logotipoa;
+import langile.Langileak;
 import sarbidea.Sarbidea;
 
 public class Menu {
@@ -12,10 +13,13 @@ public class Menu {
 	KontsolaGarbi garbi = new KontsolaGarbi();
 	Logotipoa lg = new Logotipoa();
 
-	Scanner sc = new Scanner(System.in);
 	// ERRONKA ESKATZEN DUEN PAUTAK
 	Langileak langile = new Langileak();
 	Bezeroak bezero = new Bezeroak();
+
+	// DEKLARAZIOAK
+	Scanner sc = new Scanner(System.in);
+	int aukera;
 
 	public Menu() {
 	}
@@ -34,26 +38,29 @@ public class Menu {
 		System.out.println("2. Bezeroak");
 		System.out.println("3. Saioa Itxi");
 		System.out.println("********************************");
-		
-		System.out.println("Non sartu nahi duzu? (Bakarrik 1, 2 edo 3)");
-		int aukera = sc.nextInt();
+
 		do {
+			System.out.println("Non sartu nahi duzu? (Bakarrik 1, 2 edo 3)");
+			aukera = sc.nextInt();
 			if (aukera == 1) {
-				garbi.garbitu();
 				langile.langileInformazioa();
+				break;
 			}
 			if (aukera == 2) {
-				garbi.garbitu();
 				bezero.bezeroInformazioa();
+				break;
 			}
 			if (aukera == 3) {
 				garbi.garbitu();
 				Sarbidea sarbide = new Sarbidea();
 				sarbide.login();
+				break;
 			} else {
+				garbi.garbitu();
 				System.out.println("Zenbaki hori ez dago pantaila honetan, saiatu berriro:");
 			}
-		} while (aukera == 1 || aukera == 2 || aukera == 3);
+		} while (aukera != 1 && aukera != 2 && aukera != 3);
+
 	}
 
 }
