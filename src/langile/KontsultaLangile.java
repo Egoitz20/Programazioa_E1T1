@@ -1,5 +1,9 @@
 package langile;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.Scanner;
 
 import index.KontsolaGarbi;
@@ -17,7 +21,7 @@ public class KontsultaLangile {
 	public void informazioLangile() {
 
 		garbi.garbitu();
-
+		
 		System.out.println("Ipini langile bated ID bat kontsulta egiteko: ");
 		int id = sc.nextInt();
 
@@ -30,7 +34,25 @@ public class KontsultaLangile {
 
 		//Hemen fitxategia irakurri behar da
 		
-		System.out.println("Kaixo! :)");
+		try {
+			FileReader fr = new FileReader("src/LANGILE.txt");
+			BufferedReader br = new BufferedReader(fr);
+			String buskadorea;
+			while ((buskadorea = br.readLine()) != null) {
+				String[] separadore = buskadorea.split("	");
+				System.out.println("Izena: " + separadore[1]);
+				System.out.println("Abizena: " + separadore[2]);
+				System.out.println("Telefonoa: " + separadore[4]);
+				System.out.println("Alta: " + separadore[5]);
+			}
+		} 
+		catch (FileNotFoundException e) {
+			System.out.println("Fitxategia ez da aurkitu");
+		}
+		catch(IOException e) {
+			System.out.println("Zerbait pasatu da fitxategian...");
+		}
+
 
 	}
 
