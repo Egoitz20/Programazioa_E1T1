@@ -22,11 +22,9 @@ public class Sarbidea {
 	int saikera = 3;
 
 	public Sarbidea() { 
-		
 	}
 	
-	public void login() {
-		
+	public void login() {	
 		do {
 			System.out.println("Erabiltzailea: ");
 			erabiltzaile = sc.nextLine();

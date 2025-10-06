@@ -2,6 +2,8 @@ package index;
 
 public class KargaPantaila {
 
+	//Denbora ipintzen du. Simulatzen hari da pantaila karga
+	
 	public KargaPantaila() {
 	}
 

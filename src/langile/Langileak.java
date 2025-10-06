@@ -16,14 +16,16 @@ public class Langileak {
 	public Langileak() {
 	}
 	
-	public void langileInformazioa() {
+	public void langileMenu() {
 		
 		garbi.garbitu();
 		
-		System.out.println("LANGILE FUNTZIOAK");
+		System.out.println("***** < LANGILE FUNTZIOAK > *****");
 		System.out.println("1. Kontsultatu langile baten informazio");
 		System.out.println("2. Nagusi baten langileen zerrenda erakutsi");
 		System.out.println("3. Menu Printzipalara Joan");
+		System.out.println("********************************");
+
 		
 		int aukera;
 		do {
@@ -46,7 +48,7 @@ public class Langileak {
 				System.out.println("Zenbaki hori ez dago pantaila honetan, saiatu berriro:");
 			}
 		} while (aukera != 1 && aukera != 2 && aukera != 3);
-//		
-		}
+
+	}
 	
 }

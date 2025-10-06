@@ -1,4 +1,4 @@
-package langile;
+package bezero;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -8,27 +8,28 @@ import java.util.Scanner;
 
 import index.KontsolaGarbi;
 
-public class KontsultaLangile {
+public class BezeroKontsulta {
 
 	KontsolaGarbi garbi = new KontsolaGarbi();
 
 	Scanner sc = new Scanner(System.in);
 	String erantzuna = "";
 
-	public KontsultaLangile() {
+	public BezeroKontsulta() {
 
 	}
 
-	public void informazioLangile() {
+	public void bezeroKontaktuak() {
 
 		do {
 			garbi.garbitu();
 
-			System.out.println("Ipini langile bated ID bat kontsulta egiteko: ");
+			System.out.println("Ipini bezero baten ID bat kontsulta egiteko: ");
 			int id = sc.nextInt();
-			sc.nextLine(); 
+			sc.nextLine();
 
 			System.out.println("Bilatzen...");
+
 			try {
 				Thread.sleep(1000); // 1000 milisegundu = 1 segundu
 			} catch (InterruptedException e) {
@@ -40,14 +41,18 @@ public class KontsultaLangile {
 			// Fitxategia
 
 			try {
-				FileReader fr = new FileReader("LANGILE.txt");
+				FileReader fr = new FileReader("BEZERO.txt");
 				BufferedReader br = new BufferedReader(fr);
+
+				FileReader fr2 = new FileReader("BEZERO_TELEFONO.txt");
+				BufferedReader br2 = new BufferedReader(fr2);
 
 				String lerroa;
 				boolean aurkitua = false;
 
 				// Lehen lerroa salto egiten du
 				br.readLine();
+				br2.readLine();
 
 				while ((lerroa = br.readLine()) != null) {
 					String[] separadore = lerroa.split("\t");
@@ -56,18 +61,32 @@ public class KontsultaLangile {
 					if (fitxategiId == id) {
 						System.out.println("Izena: " + separadore[1]);
 						System.out.println("Abizena: " + separadore[2]);
-						System.out.println("Telefonoa: " + separadore[4]);
-						System.out.println("Kontratazio Data: " + separadore[5]);
+						System.out.println("Emaila: " + separadore[4]);
+
+						aurkitua = true;
+						break; // Aurkituta dago, ateratzen da
+					}
+
+				}
+
+				while ((lerroa = br2.readLine()) != null) {
+					String[] separadore2 = lerroa.split("\t");
+					int fitxategiId2 = Integer.parseInt(separadore2[1]);
+
+					if (fitxategiId2 == id) {
+						System.out.println("Telefonoa: " + separadore2[2]);
+
 						aurkitua = true;
 						break; // Aurkituta dago, ateratzen da
 					}
 				}
 
 				if (!aurkitua) {
-					System.out.println("Ez da langilea aurkitu ID honekin: " + id);
+					System.out.println("Ez da bezerorik aurkitu ID honekin: " + id);
 				}
 
 				br.close();
+				br2.close();
 			}
 
 			catch (FileNotFoundException e) {
@@ -77,7 +96,7 @@ public class KontsultaLangile {
 			}
 			System.out.println();
 
-			System.out.println("Nahi duzu beste langile bat informazio atera? Bai / Ez");
+			System.out.println("Nahi duzu beste bezero bat informazio atera? Bai / Ez");
 			erantzuna = sc.nextLine().toUpperCase();
 			if (!erantzuna.equals("BAI")) {
 				System.out.println("Ateratzen...");
@@ -89,12 +108,12 @@ public class KontsultaLangile {
 				}
 
 				garbi.garbitu();
-				Langileak langileMenu = new Langileak();
-				langileMenu.langileMenu();
-
+				Bezeroak bezero = new Bezeroak();
+				bezero.bezeroMenu();
 			}
 
 		} while (erantzuna.equals("BAI"));
 
 	}
+
 }
