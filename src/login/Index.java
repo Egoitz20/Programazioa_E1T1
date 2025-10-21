@@ -1,4 +1,4 @@
-package index;
+package login;
 
 import sarbidea.Sarbidea;
 

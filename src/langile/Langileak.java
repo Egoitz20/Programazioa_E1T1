@@ -2,7 +2,7 @@ package langile;
 
 import java.util.Scanner;
 
-import index.KontsolaGarbi;
+import funtzioKomplementarioak.KontsolaGarbi;
 import menuPrintzipala.Menu;
 
 public class Langileak {

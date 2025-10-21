@@ -1,0 +1,12 @@
+**** << PROGRAMAN SARTZEKO >> ****
+
+-- Programa hasteko -> [ src > login > index.java ] -- 
+
+-- Erabiltzaileak -> [ eguerras, aantillaque, aolmo, gmaroto] --  
+
+-- Pasahitza -> BETI izango da [ ikasle123 ] -- 
+
+**** << ERABILTZAILEAK ALDATU, EZABATU EDO GEHITU >> ****
+
+-- Erabiltzaileak -> [ src > sarbidea > Sarbidea.java > LIN19 ]
+//String erabiltzailea[] = { "eguerras", "aantillaque", "aolmo", "gmaroto" };\\

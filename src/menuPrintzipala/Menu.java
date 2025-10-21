@@ -3,8 +3,8 @@ package menuPrintzipala;
 import java.util.Scanner;
 
 import bezero.Bezeroak;
-import index.KargaPantaila;
-import index.KontsolaGarbi;
+import funtzioKomplementarioak.KargaPantaila;
+import funtzioKomplementarioak.KontsolaGarbi;
 import langile.Langileak;
 import sarbidea.Sarbidea;
 

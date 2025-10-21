@@ -2,7 +2,7 @@ package bezero;
 
 import java.util.Scanner;
 
-import index.KontsolaGarbi;
+import funtzioKomplementarioak.KontsolaGarbi;
 import menuPrintzipala.Menu;
 
 public class Bezeroak {
@@ -22,7 +22,7 @@ public class Bezeroak {
 	public void bezeroMenu() {
 		garbi.garbitu();
 
-		System.out.println("********************************");
+		System.out.println("***** < BEZERO FUNTZIOAK > *****");
 		System.out.println("1. Bezeroaren kontaktuak kontsultatu ");
 		System.out.println("2. Bezero batek egindako erosketa baten faktura sortu ");
 		System.out.println("3. Atzera joan ");

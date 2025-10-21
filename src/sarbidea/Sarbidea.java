@@ -3,8 +3,8 @@ package sarbidea;
 import java.util.Arrays;
 import java.util.Scanner;
 
-import index.KargaPantaila;
-import index.KontsolaGarbi;
+import funtzioKomplementarioak.KargaPantaila;
+import funtzioKomplementarioak.KontsolaGarbi;
 import menuPrintzipala.Menu;
 
 public class Sarbidea {

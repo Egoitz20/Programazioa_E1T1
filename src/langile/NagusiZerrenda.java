@@ -6,7 +6,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.Scanner;
 
-import index.KontsolaGarbi;
+import funtzioKomplementarioak.KontsolaGarbi;
 
 public class NagusiZerrenda {
 
@@ -20,78 +20,100 @@ public class NagusiZerrenda {
 
 	public void nagusiLangile() {
 
-		do {
-			garbi.garbitu();
+	    do {
+	        garbi.garbitu();
 
-			System.out.println("Ipini nagusi bated ID bat kontsulta egiteko: ");
-			int id = sc.nextInt();
-			sc.nextLine(); // para limpiar el buffer
+	        System.out.println("Ipini nagusi baten ID bat kontsulta egiteko: ");
+	        int id = sc.nextInt();
+	        sc.nextLine(); // buffer garbitu
 
-			System.out.println("Bilatzen...");
-			try {
-				Thread.sleep(1000); // 1000 milisegundu = 1 segundu
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
+	        System.out.println("Bilatzen...");
+	        try {
+	            Thread.sleep(1000);
+	        } catch (InterruptedException e) {
+	            e.printStackTrace();
+	        }
 
-			System.out.println();
+	        System.out.println();
 
-			// Fitxategia
+	        try {
+	            FileReader fr = new FileReader("LANGILE.txt");
+	            BufferedReader br = new BufferedReader(fr);
 
-			try {
-				FileReader fr = new FileReader("LANGILE.txt");
-				BufferedReader br = new BufferedReader(fr);
+	            String lerroa;
+	            boolean aurkitua = false;
+	            boolean langileakAurkitu = false;
 
-				String lerroa;
-				boolean aurkitua = false;
+	            // Lehen lerroa salto egiten du (izenburuak)
+	            br.readLine();
 
-				// Lehen lerroa salto egiten du
-				br.readLine();
+	            // Lehenengoan, aurkitu nagusiaren datuak
+	            while ((lerroa = br.readLine()) != null) {
+	                String[] separadore = lerroa.split("\t");
+	                int fitxategiId = Integer.parseInt(separadore[0]); // ID nagusia da lehenengo zutabea
 
-				while ((lerroa = br.readLine()) != null) {
-					String[] separadore = lerroa.split("\t");
-					int fitxategiId = Integer.parseInt(separadore[6]);
+	                if (fitxategiId == id) {
+	                    System.out.println("NAGUSIAREN DATUAK");
+	                    System.out.println("----------------");
+	                    System.out.println("Izena: " + separadore[1]);
+	                    System.out.println("Abizena: " + separadore[2]);
+	                    System.out.println("Emaila: " + separadore[3]);
+	                    aurkitua = true;
+	                    break;
+	                }
+	            }
 
-					if (fitxategiId == id) {
-						System.out.println("Izena: " + separadore[1]);
-						System.out.println("Abizena: " + separadore[2]);
-						System.out.println("Emaila: " + separadore[4]);
-						aurkitua = true;
-						break; // Aurkituta dago, ateratzen da
-					}
-				}
+	            if (!aurkitua) {
+	                System.out.println("Ez da nagusi aurkitu ID honekin: " + id);
+	            } else {
+	                // Fitxategia berriro irakurri langileak bilatzeko
+	                br.close();
+	                fr = new FileReader("LANGILE.txt");
+	                br = new BufferedReader(fr);
+	                br.readLine(); // salto izenburua
 
-				if (!aurkitua) {
-					System.out.println("Ez da nagusi aurkitu ID honekin: " + id);
-				}
+	                System.out.println("\nLANGILEAK:");
+	                System.out.println("-----------");
 
-				br.close();
-			}
+	                while ((lerroa = br.readLine()) != null) {
+	                    String[] separadore = lerroa.split("\t");
+	                    int idNagusi = Integer.parseInt(separadore[6]);
 
-			catch (FileNotFoundException e) {
-				System.out.println("Fitxategia ez da aurkitu");
-			} catch (IOException e) {
-				System.out.println("Zerbait pasatu da fitxategian...");
-			}
-			System.out.println();
+	                    if (idNagusi == id) {
+	                        System.out.println("Izena: " + separadore[1] + " | Abizena: " + separadore[2]);
+	                        langileakAurkitu = true;
+	                    }
+	                }
 
-			System.out.println("Nahi duzu beste nagusi bat informazio atera? Bai / Ez");
-			erantzuna = sc.nextLine().toUpperCase();
-			if (!erantzuna.equals("BAI")) {
-				System.out.println("Ateratzen...");
+	                if (!langileakAurkitu) {
+	                    System.out.println("Ez dago langilerik nagusi horrekin.");
+	                }
+	            }
 
-				try {
-					Thread.sleep(1000); // 1000 milisegundu = 1 segundu
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
+	            br.close();
+	        } catch (FileNotFoundException e) {
+	            System.out.println("Fitxategia ez da aurkitu");
+	        } catch (IOException e) {
+	            System.out.println("Zerbait pasatu da fitxategian...");
+	        }
 
-				garbi.garbitu();
-				Langileak langileMenu = new Langileak();
-				langileMenu.langileMenu();
+	        System.out.println();
+	        System.out.println("Nahi duzu beste nagusi bat informazio atera? Bai / Ez");
+	        erantzuna = sc.nextLine().toUpperCase();
 
-			}
+	        if (!erantzuna.equals("BAI")) {
+	            System.out.println("Ateratzen...");
+	            try {
+	                Thread.sleep(1000);
+	            } catch (InterruptedException e) {
+	                e.printStackTrace();
+	            }
 
-		} while (erantzuna.equals("BAI"));
+	            garbi.garbitu();
+	            Langileak langileMenu = new Langileak();
+	            langileMenu.langileMenu();
+	        }
+
+	    } while (erantzuna.equals("BAI"));
 	}
 }

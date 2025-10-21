@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.text.DecimalFormat;
 import java.util.Scanner;
 
-import index.KontsolaGarbi;
+import funtzioKomplementarioak.KontsolaGarbi;
 
 public class BezeroFaktura {
 
