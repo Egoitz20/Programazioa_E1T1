@@ -10,19 +10,16 @@ import funtzioKomplementarioak.KontsolaGarbi;
 
 public class BezeroKontsulta {
 
-	KontsolaGarbi garbi = new KontsolaGarbi();
-
-	Scanner sc = new Scanner(System.in);
-	String erantzuna = "";
-
 	public BezeroKontsulta() {
-
 	}
 
 	public void bezeroKontaktuak() {
+		
+		Scanner sc = new Scanner(System.in);
+		String erantzuna = "";
 
 		do {
-			garbi.garbitu();
+			KontsolaGarbi.garbitu();
 
 			System.out.println("Ipini bezero baten ID bat kontsulta egiteko: ");
 			int id = sc.nextInt();
@@ -107,12 +104,14 @@ public class BezeroKontsulta {
 					e.printStackTrace();
 				}
 
-				garbi.garbitu();
+				KontsolaGarbi.garbitu();
 				Bezeroak bezero = new Bezeroak();
 				bezero.bezeroMenu();
 			}
 
 		} while (erantzuna.equals("BAI"));
+		
+		sc.close();
 
 	}
 

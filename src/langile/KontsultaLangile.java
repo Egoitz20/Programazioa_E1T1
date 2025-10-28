@@ -10,19 +10,16 @@ import funtzioKomplementarioak.KontsolaGarbi;
 
 public class KontsultaLangile {
 
-	KontsolaGarbi garbi = new KontsolaGarbi();
-
-	Scanner sc = new Scanner(System.in);
-	String erantzuna = "";
-
 	public KontsultaLangile() {
-
 	}
 
 	public void informazioLangile() {
 
+		Scanner sc = new Scanner(System.in);
+		String erantzuna = "";
+		
 		do {
-			garbi.garbitu();
+			KontsolaGarbi.garbitu();
 
 			System.out.println("Ipini langile bated ID bat kontsulta egiteko: ");
 			int id = sc.nextInt();
@@ -88,13 +85,14 @@ public class KontsultaLangile {
 					e.printStackTrace();
 				}
 
-				garbi.garbitu();
+				KontsolaGarbi.garbitu();
 				Langileak langileMenu = new Langileak();
 				langileMenu.langileMenu();
 
 			}
 
 		} while (erantzuna.equals("BAI"));
+		sc.close();
 
 	}
 }

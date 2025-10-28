@@ -1,6 +1,6 @@
 package langile;
 
-import java.io.BufferedReader;
+import java.io.*;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
@@ -10,18 +10,16 @@ import funtzioKomplementarioak.KontsolaGarbi;
 
 public class NagusiZerrenda {
 
-	KontsolaGarbi garbi = new KontsolaGarbi();
-	Scanner sc = new Scanner(System.in);
-	String erantzuna = "";
-
 	public NagusiZerrenda() {
-
 	}
 
 	public void nagusiLangile() {
 
+		Scanner sc = new Scanner(System.in);
+		String erantzuna = "";
+		
 	    do {
-	        garbi.garbitu();
+	    	KontsolaGarbi.garbitu();
 
 	        System.out.println("Ipini nagusi baten ID bat kontsulta egiteko: ");
 	        int id = sc.nextInt();
@@ -37,9 +35,21 @@ public class NagusiZerrenda {
 	        System.out.println();
 
 	        try {
-	            FileReader fr = new FileReader("LANGILE.txt");
+	            //File f = new File(".");
+	           // System.out.println(System.getProperty("user.dir"));
+	        	FileReader fr = new FileReader("src/LANGILE.txt");
 	            BufferedReader br = new BufferedReader(fr);
+	           
+	            
+//	            BufferedReader br ;
 
+//	            try (InputStream in = NagusiZerrenda.class.getResourceAsStream("/LANGILE.txt")) {
+//	                if (in == null) {
+//	                    System.out.println("No se encontró el fichero dentro del JAR");
+//	                    return;
+//	                }
+//	            br = new BufferedReader(new InputStreamReader(in));
+	                
 	            String lerroa;
 	            boolean aurkitua = false;
 	            boolean langileakAurkitu = false;
@@ -109,11 +119,12 @@ public class NagusiZerrenda {
 	                e.printStackTrace();
 	            }
 
-	            garbi.garbitu();
+	            KontsolaGarbi.garbitu();
 	            Langileak langileMenu = new Langileak();
 	            langileMenu.langileMenu();
 	        }
 
 	    } while (erantzuna.equals("BAI"));
+	    sc.close();
 	}
 }

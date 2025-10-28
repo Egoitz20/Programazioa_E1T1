@@ -7,18 +7,19 @@ import menuPrintzipala.Menu;
 
 public class Langileak {
 	
-	KontsolaGarbi garbi = new KontsolaGarbi();
-	KontsultaLangile kontsulta = new KontsultaLangile();
-	NagusiZerrenda zerrenda = new NagusiZerrenda();
 	
-	Scanner sc = new Scanner(System.in);
 
 	public Langileak() {
 	}
 	
 	public void langileMenu() {
 		
-		garbi.garbitu();
+		KontsultaLangile kontsulta = new KontsultaLangile();
+		NagusiZerrenda zerrenda = new NagusiZerrenda();
+		
+		Scanner sc = new Scanner(System.in);
+		
+		KontsolaGarbi.garbitu();
 		
 		System.out.println("***** < LANGILE FUNTZIOAK > *****");
 		System.out.println("1. Kontsultatu langile baten informazio");
@@ -26,8 +27,8 @@ public class Langileak {
 		System.out.println("3. Menu Printzipalara Joan");
 		System.out.println("********************************");
 
-		
 		int aukera;
+		
 		do {
 			System.out.println("Zer egin nahi duzu? (Bakarrik 1, 2 edo 3)");
 			aukera = sc.nextInt();
@@ -40,14 +41,15 @@ public class Langileak {
 				break;
 			}
 			if (aukera == 3) {
-				Menu menu = new Menu();
-				menu.menuPrintzipala();
+				new Menu().menuPrintzipala();
 				break;
 			} else {
-				garbi.garbitu();
+				KontsolaGarbi.garbitu();
 				System.out.println("Zenbaki hori ez dago pantaila honetan, saiatu berriro:");
 			}
 		} while (aukera != 1 && aukera != 2 && aukera != 3);
+		
+		sc.close();
 
 	}
 	

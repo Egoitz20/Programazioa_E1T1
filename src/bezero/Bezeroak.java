@@ -7,20 +7,19 @@ import menuPrintzipala.Menu;
 
 public class Bezeroak {
 
-	KontsolaGarbi garbi = new KontsolaGarbi();
-
 	Scanner sc = new Scanner(System.in);
 
 	BezeroKontsulta bezeroKontsulta = new BezeroKontsulta();
 	BezeroFaktura faktura = new BezeroFaktura();
 
-
 	public Bezeroak() {
-
 	}
 
 	public void bezeroMenu() {
-		garbi.garbitu();
+		
+		int aukera;
+		
+		KontsolaGarbi.garbitu();
 
 		System.out.println("***** < BEZERO FUNTZIOAK > *****");
 		System.out.println("1. Bezeroaren kontaktuak kontsultatu ");
@@ -28,7 +27,7 @@ public class Bezeroak {
 		System.out.println("3. Atzera joan ");
 		System.out.println("********************************");
 
-		int aukera = sc.nextInt();
+		aukera = sc.nextInt();
 
 		switch (aukera) {
 		case 1:
@@ -38,8 +37,7 @@ public class Bezeroak {
 			faktura.faktura();
 			break;
 		case 3:
-			Menu menu = new Menu();
-			menu.menuPrintzipala();
+			new Menu().menuPrintzipala();
 			break;
 		default:
 			System.out.println("Zenbaki hori ez dago bezeroaren menu...");
